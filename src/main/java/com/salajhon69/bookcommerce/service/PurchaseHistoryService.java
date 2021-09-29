@@ -18,7 +18,7 @@ public class PurchaseHistoryService implements IPurchaseHistoryService {
     @Override
     public PurchaseHistory savePurchaseHistory(PurchaseHistory purchaseHistory) {
         purchaseHistory.setPurchaseTime(LocalDateTime.now());
-        return purchaseHistoryRepository.save(purchaseHistory)
+        return purchaseHistoryRepository.save(purchaseHistory);
     }
 
     @Override
