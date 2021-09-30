@@ -2,6 +2,7 @@ package com.salajhon69.bookcommerce.service;
 
 import com.salajhon69.bookcommerce.model.User;
 import com.salajhon69.bookcommerce.security.UserPrincipal;
+import com.salajhon69.bookcommerce.security.jwt.IJwtProvider;
 import com.salajhon69.bookcommerce.security.jwt.JwtProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -16,7 +17,7 @@ public class AuthenticationService implements IAuthenticationService {
     private AuthenticationManager authenticationManager;
 
     @Autowired
-    private JwtProvider jwtProvider;
+    private IJwtProvider jwtProvider;
 
     @Override
     public User signInAndReturnJWT(User sigInRequest) {
@@ -30,6 +31,6 @@ public class AuthenticationService implements IAuthenticationService {
         User signInUser = userPrincipal.getUser();
         signInUser.setToken(jwt);
 
-        return sigInRequest;
+        return signInUser;
     }
 }
