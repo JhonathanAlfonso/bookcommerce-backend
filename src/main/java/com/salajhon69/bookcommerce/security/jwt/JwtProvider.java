@@ -84,8 +84,11 @@ public class JwtProvider implements IJwtProvider {
             return false;
         }
 
-        return !claims.getExpiration().before(new Date());
+        if (claims.getExpiration().before(new Date())) {
+            return false;
+        }
 
+        return true;
     }
 
     private Claims extractClaims(HttpServletRequest request) {
