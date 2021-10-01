@@ -1,0 +1,8 @@
+{
+  "name": "bookcommerce",
+  "buildpack": [
+    {
+      "url": "heroku/gradle"
+    }
+  ]
+}
